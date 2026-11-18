@@ -17,7 +17,7 @@
 
 ### showmoa
 
-<!-- TODO: 대표 이미지 (assets/showmoa.png) -->
+<img src="assets/showmoa.jpg" alt="showmoa" width="100%">
 
 전국 공연을 검색·지도·캘린더로 찾고, 관심 공연을 저장해 외부 예매처까지 연결하는 공연 정보 서비스입니다. 4인 팀에서 **CTO**를 맡아 API 설계, KOPIS 공연 데이터 동기화, 서버 배포·운영, 모니터링·성능 측정을 담당했습니다.
 
@@ -32,7 +32,7 @@
 
 ### test-moa
 
-<!-- TODO: 대표 이미지 (assets/test-moa.png) -->
+<img src="assets/test-moa.jpg" alt="test-moa" width="100%">
 
 개발자와 테스터를 연결하는 소프트웨어 테스터 모집 플랫폼입니다. 조건에 맞는 테스터를 모집하고, 항목별 피드백을 받고, 피드백에 크레딧으로 보상합니다. 모인 피드백은 AI가 묶어 개선 우선순위를 매깁니다.
 
@@ -47,7 +47,7 @@
 
 ### pawmento
 
-<!-- TODO: 대표 이미지 (assets/pawmento.png) -->
+<img src="assets/pawmento.jpg" alt="pawmento" width="100%">
 
 반려동물의 사진·영상·음성·글을 한곳에 보관하고, 하루 한 질문으로 평범한 일상을 쉽게 기록하도록 돕는 PWA 기반 웹·모바일 서비스입니다. 보호자가 준비되었을 때 홈 화면을 함께하는 오늘(ACTIVE)에서 기억의 정원(GARDEN)으로 직접 전환할 수 있고, 커뮤니티에서 반려 생활·돌봄·장례·추모 경험을 나눌 수 있습니다.
 
