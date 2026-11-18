@@ -1,9 +1,8 @@
 # 양덕관 (Deokkwan Yang)
 
-**측정하고, 원인을 찾고, 판단을 남기는 백엔드 개발자**
-
-팀 프로젝트에서 백엔드와 함께 배포·CI·모니터링을 맡아 왔습니다.<br/>
-느려지면 먼저 측정하고, 실패하면 증상보다 원인을 찾고, 무엇을 고르고 무엇을 미뤘는지 기록으로 남깁니다.
+Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
+팀 프로젝트에서 API 개발과 함께 배포·CI·모니터링을 맡고 있습니다.<br/>
+지금은 반려동물 기록 서비스 Pawmento를 만들고 있습니다.
 
 [![Email](https://img.shields.io/badge/deokkwan.y@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:deokkwan.y@gmail.com)
 [![Blog](https://img.shields.io/badge/Blog-isle--blu.github.io-222222?style=flat-square&logo=githubpages&logoColor=white)](https://isle-blu.github.io)
