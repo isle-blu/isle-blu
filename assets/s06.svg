@@ -1,0 +1,21 @@
+<svg viewBox="0 0 1000 90" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="06 — STACK">
+  <style>
+    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    .ink { fill: #1F2328; } .muted { fill: #59636E; } .accent { fill: #1D4ED8; }
+    .draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: draw 1.2s cubic-bezier(.6,0,.2,1) forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .rise { opacity: 0; animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .grow { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); animation: grow .7s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes grow { to { transform: scaleY(1); } }
+    .a1 { animation-delay: .1s } .a2 { animation-delay: .35s } .a3 { animation-delay: .6s } .a4 { animation-delay: .85s } .a5 { animation-delay: 1.1s }
+    @media (prefers-reduced-motion: reduce) { .draw, .rise, .grow { animation: none; opacity: 1; stroke-dashoffset: 0; transform: none; } }
+  </style>
+
+  <g class="rise a1">
+    <text class="accent" x="-2" y="56" font-size="48" letter-spacing="-1">06</text>
+    <text class="ink" x="86" y="54" font-size="20" letter-spacing="4">— STACK</text>
+    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="3" text-anchor="end">DAILY TOOLS</text>
+  </g>
+  <line class="draw a2" x1="0" y1="80" x2="1000" y2="80" stroke="#D0D7DE"/>
+</svg>

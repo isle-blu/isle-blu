@@ -1,15 +1,14 @@
-# 양덕관 (Deokkwan Yang)
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/header.svg"><img src="assets/header.svg" alt="Deokkwan Yang — Backend Engineer" width="100%"></picture>
 
-Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
-팀 프로젝트에서 API 개발과 함께 배포·CI·모니터링을 맡고 있습니다.<br/>
-신입 백엔드 개발자 포지션을 찾고 있습니다.
+양덕관입니다. Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
+팀 프로젝트에서 API 개발과 함께 배포·CI·모니터링을 맡고 있습니다.
 
 [![Email](https://img.shields.io/badge/deokkwan.y@gmail.com-1D4ED8?style=flat-square&logo=gmail&logoColor=white)](mailto:deokkwan.y@gmail.com)
 [![Blog](https://img.shields.io/badge/isle--blu.github.io-1D4ED8?style=flat-square&logo=github&logoColor=white)](https://isle-blu.github.io)
 
 <br/>
 
-## 요즘 하는 일
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s01.svg"><img src="assets/s01.svg" alt="01 — NOW" width="100%"></picture>
 
 <table>
   <tr>
@@ -28,7 +27,7 @@ Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
 
 <br/>
 
-## 프로젝트
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s02.svg"><img src="assets/s02.svg" alt="02 — PROJECTS" width="100%"></picture>
 
 <table>
   <tr>
@@ -63,7 +62,25 @@ Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
 
 <br/>
 
-## 기술 스택
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s03.svg"><img src="assets/s03.svg" alt="03 — PIPELINE" width="100%"></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/fig-pipeline.svg"><img src="assets/fig-pipeline.svg" alt="배포 파이프라인: 코드, 테스트, 빌드, 배포, 프록시, 감시 단계별로 세 프로젝트에서 맡은 부분" width="100%"></picture>
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s04.svg"><img src="assets/s04.svg" alt="04 — TELEMETRY" width="100%"></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/fig-telemetry.svg"><img src="assets/fig-telemetry.svg" alt="최근 12개월 커밋, PR, 리뷰, 이슈 수와 월별 기여 그래프" width="100%"></picture>
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s05.svg"><img src="assets/s05.svg" alt="05 — TIMELINE" width="100%"></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/fig-timeline.svg"><img src="assets/fig-timeline.svg" alt="연표: 2021 GitHub 시작, 2026 Showmoa, test moa, Pawmento, 지금 신입 백엔드 구직 중" width="100%"></picture>
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s06.svg"><img src="assets/s06.svg" alt="06 — STACK" width="100%"></picture>
 
 <p>
       <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
@@ -76,7 +93,6 @@ Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
       <img src="https://img.shields.io/badge/JUnit5-25A162?style=flat-square&logo=junit5&logoColor=white" alt="JUnit5">
 </p>
 
-<picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=isle-blu&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=3B82F6&icon_color=3B82F6&ring_color=3B82F6">
-        <img src="https://github-readme-stats.vercel.app/api?username=isle-blu&show_icons=true&hide_border=true&title_color=1D4ED8&icon_color=1D4ED8&ring_color=1D4ED8" alt="GitHub Stats">
-      </picture>
+<br/>
+
+<sub>Design inspired by <a href="https://github.com/Sharann-del">Sharann-del</a></sub>

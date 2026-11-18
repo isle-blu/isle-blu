@@ -1,0 +1,33 @@
+name: 프로필 SVG 갱신
+
+on:
+  schedule:
+    - cron: "0 18 * * *" # 매일 03:00 KST
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/profile_svg.py]
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: SVG 생성
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/profile_svg.py
+      - name: 바뀐 SVG 커밋
+        run: |
+          git add assets
+          if git diff --cached --quiet; then
+            echo "바뀐 내용 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: 프로필 SVG 갱신"
+          git push
