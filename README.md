@@ -1,7 +1,8 @@
 # 양덕관 (Deokkwan Yang)
 
 Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
-팀 프로젝트에서 API 개발과 함께 배포·CI·모니터링을 맡고 있습니다.
+팀 프로젝트에서 API 개발과 함께 배포·CI·모니터링을 맡고 있습니다.<br/>
+신입 백엔드 개발자 포지션을 찾고 있습니다.
 
 [![Email](https://img.shields.io/badge/deokkwan.y@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:deokkwan.y@gmail.com)
 [![Blog](https://img.shields.io/badge/Blog-isle--blu.github.io-222222?style=flat-square&logo=githubpages&logoColor=white)](https://isle-blu.github.io)
@@ -63,12 +64,15 @@ Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
 
 <table>
   <tr>
-    <td width="48%" valign="top">
-      <b>Backend</b><br/> <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java"> <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot"> <img src="https://img.shields.io/badge/Spring_Security-6DB33F?style=flat-square&logo=springsecurity&logoColor=white" alt="Spring Security"> <img src="https://img.shields.io/badge/JPA-59666C?style=flat-square&logo=hibernate&logoColor=white" alt="JPA"> <br/><br/>
-      <b>Database</b><br/> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/PostGIS-5A8DB8?style=flat-square" alt="PostGIS"> <img src="https://img.shields.io/badge/Redis_%28Valkey%29-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis (Valkey)"> <br/><br/>
-      <b>Infra</b><br/> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker"> <img src="https://img.shields.io/badge/nginx-009639?style=flat-square&logo=nginx&logoColor=white" alt="nginx"> <img src="https://img.shields.io/badge/Caddy-1F88C0?style=flat-square&logo=caddy&logoColor=white" alt="Caddy"> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions"> <br/><br/>
-      <b>Test</b><br/> <img src="https://img.shields.io/badge/JUnit5-25A162?style=flat-square&logo=junit5&logoColor=white" alt="JUnit5"> <img src="https://img.shields.io/badge/Testcontainers-291A3F?style=flat-square" alt="Testcontainers"> <img src="https://img.shields.io/badge/k6-7D64FF?style=flat-square&logo=k6&logoColor=white" alt="k6"> <br/><br/>
-      <b>Frontend (협업)</b><br/> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js"> 
+    <td width="48%" valign="middle">
+      <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
+      <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot">
+      <img src="https://img.shields.io/badge/JPA-59666C?style=flat-square&logo=hibernate&logoColor=white" alt="JPA">
+      <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+      <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis">
+      <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker">
+      <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions">
+      <img src="https://img.shields.io/badge/JUnit5-25A162?style=flat-square&logo=junit5&logoColor=white" alt="JUnit5">
     </td>
     <td valign="middle" align="center">
       <picture>
