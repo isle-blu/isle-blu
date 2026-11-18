@@ -106,28 +106,27 @@ def esc(s):
 def header(t):
     return svg(t, 300, "양덕관 Deokkwan Yang — 백엔드 개발자", f"""
   <g class="rise a1">
-    <text class="muted" x="0" y="28" font-size="14" letter-spacing="0">백엔드 개발자 — 프로필 Nº 001</text>
-    <text class="muted" x="1000" y="28" font-size="14" letter-spacing="0" text-anchor="end">GITHUB / ISLE-BLU</text>
+    <text class="muted" x="0" y="28" font-size="14" letter-spacing="2">BACKEND ENGINEER — PROFILE Nº 001</text>
+    <text class="muted" x="1000" y="28" font-size="14" letter-spacing="2" text-anchor="end">GITHUB / ISLE-BLU</text>
   </g>
   <line class="draw a1" x1="0" y1="46" x2="1000" y2="46" stroke="{t['faint']}"/>
   <text class="ink rise a2" x="-4" y="150" font-size="76">양덕관</text>
   <text class="muted rise a2" x="252" y="150" font-size="26">Deokkwan Yang</text>
-  <text class="muted rise a3" x="0" y="196" font-size="20" letter-spacing="0">Java · Spring · CI/CD · 모니터링</text>
+  <text class="muted rise a3" x="0" y="196" font-size="20" letter-spacing="1">Java · Spring · CI/CD · Monitoring</text>
   <line class="draw a3" x1="0" y1="232" x2="1000" y2="232" stroke="{t['faint']}"/>
   <g class="rise a4">
-    <text class="muted" x="0" y="270" font-size="14" letter-spacing="0">상태</text>
+    <text class="muted" x="0" y="270" font-size="14" letter-spacing="2">STATUS</text>
     <text class="accent" x="100" y="270" font-size="18">신입 백엔드 포지션 구직 중</text>
   </g>
 """)
 
 
 SECTIONS = [
-    ("s01", "01", "기술 스택", "매일 쓰는 도구"),
-    ("s02", "02", "요즘 하는 일", "진행 중"),
-    ("s03", "03", "프로젝트", "대표 작업"),
-    ("s04", "04", "배포 파이프라인", "PR부터 운영까지"),
-    ("s05", "05", "활동 지표", "최근 12개월"),
-    ("s06", "06", "연표", "지금까지"),
+    ("s01", "01", "기술 스택", "DAILY TOOLS"),
+    ("s02", "02", "요즘 하는 일", "IN PROGRESS"),
+    ("s03", "03", "프로젝트", "SELECTED WORK"),
+    ("s04", "04", "활동 지표", "LAST 12 MONTHS"),
+    ("s05", "05", "연표", "SO FAR"),
 ]
 
 
@@ -136,75 +135,13 @@ def section(t, num, name, note):
   <g class="rise a1">
     <text class="accent" x="-2" y="56" font-size="48" letter-spacing="-1">{num}</text>
     <text class="ink" x="86" y="54" font-size="20" letter-spacing="0">— {name}</text>
-    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="0" text-anchor="end">{note}</text>
+    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="2" text-anchor="end">{note}</text>
   </g>
   <line class="draw a2" x1="0" y1="80" x2="1000" y2="80" stroke="{t['faint']}"/>
 """)
 
 
-# ── FIG.01 배포 파이프라인 ───────────────────────────
-# 단계마다 어느 프로젝트에서 직접 다뤘는지 표시한다. 근거는 각 저장소의 워크플로와 설계 기록이다.
-
-STAGES = [
-    ("코드", "PR · 리뷰", "GitHub"),
-    ("테스트", "CI 검사", "Actions"),
-    ("빌드", "이미지 빌드", "GHCR / 서버"),
-    ("배포", "Compose", "자동 롤백"),
-    ("프록시", "HTTPS", "Caddy / nginx"),
-    ("감시", "알림 · k6", "대시보드"),
-]
-PROJECTS = [
-    ("Showmoa", [1, 0, 1, 1, 1, 1]),
-    ("test moa", [1, 1, 1, 1, 1, 0]),
-    ("Pawmento", [1, 1, 1, 1, 1, 0]),
-]
-
-
-def fig_pipeline(t):
-    x0, w, gap = 130, 130, 14
-    parts = [f"""
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 01</text>
-  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="0" text-anchor="end">PR이 운영 서버에 닿기까지</text>"""]
-    for i, (name, main, sub) in enumerate(STAGES):
-        x = x0 + i * (w + gap)
-        cx = x + w / 2
-        parts.append(f"""
-  <g class="rise a{min(i // 2 + 1, 4)}">
-    <rect x="{x}" y="44" width="{w}" height="104" stroke="{t['faint']}"/>
-    <text class="accent" x="{x + 12}" y="70" font-size="14" letter-spacing="0">{i + 1:02d} {name}</text>
-    <text class="ink" x="{x + 12}" y="102" font-size="15">{esc(main)}</text>
-    <text class="muted" x="{x + 12}" y="128" font-size="14">{esc(sub)}</text>
-  </g>""")
-        if i < len(STAGES) - 1:
-            ax = x + w
-            parts.append(f"""
-  <path class="draw a3" d="M{ax + 3} 96 H{ax + gap - 3} M{ax + gap - 8} 91 L{ax + gap - 3} 96 L{ax + gap - 8} 101" stroke="{t['muted']}"/>""")
-        parts.append(f"""
-  <line class="draw a2" x1="{cx}" y1="160" x2="{cx}" y2="300" stroke="{t['faint']}" stroke-dasharray="2 5"/>""")
-    for r, (proj, used) in enumerate(PROJECTS):
-        y = 196 + r * 44
-        parts.append(f"""
-  <g class="rise a{r + 3}">
-    <text class="ink" x="0" y="{y + 5}" font-size="15" letter-spacing="0">{proj}</text>""")
-        for i, u in enumerate(used):
-            cx = x0 + i * (w + gap) + w / 2
-            if u:
-                parts.append(f'\n    <circle cx="{cx}" cy="{y}" r="8" fill="{t["accent"]}"/>')
-            else:
-                parts.append(f'\n    <circle cx="{cx}" cy="{y}" r="7" stroke="{t["faint"]}" stroke-width="1.5"/>')
-        parts.append("\n  </g>")
-    parts.append(f"""
-  <g class="rise a5">
-    <circle cx="136" cy="333" r="7" fill="{t['accent']}"/>
-    <text class="muted" x="152" y="338" font-size="14">직접 맡음</text>
-    <circle cx="316" cy="333" r="6" stroke="{t['faint']}" stroke-width="1.5"/>
-    <text class="muted" x="332" y="338" font-size="14">해당 없음</text>
-  </g>
-""")
-    return svg(t, 350, "배포 파이프라인: 코드, 테스트, 빌드, 배포, 프록시, 감시 단계별로 세 프로젝트에서 맡은 부분", "".join(parts))
-
-
-# ── FIG.02 TELEMETRY ─────────────────────────────────
+# ── FIG.01 활동 지표 ─────────────────────────────────
 
 QUERY = """query($login: String!) { user(login: $login) { contributionsCollection {
   totalCommitContributions totalPullRequestContributions totalPullRequestReviewContributions totalIssueContributions
@@ -240,17 +177,17 @@ def fetch_stats():
 
 
 def fig_telemetry(t, s):
-    counters = [("커밋", s["commits"]), ("PR", s["prs"]),
-                ("리뷰", s["reviews"]), ("이슈", s["issues"])]
+    counters = [("COMMITS", s["commits"]), ("PULL REQUESTS", s["prs"]),
+                ("REVIEWS", s["reviews"]), ("ISSUES", s["issues"])]
     parts = [f"""
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 02</text>
-  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="0" text-anchor="end">{date.today():%Y.%m.%d} 갱신</text>"""]
+  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="2">FIG. 01</text>
+  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="2" text-anchor="end">UPDATED {date.today():%Y.%m.%d}</text>"""]
     for i, (label, value) in enumerate(counters):
         x, y = (i % 2) * 190, 96 + (i // 2) * 110
         parts.append(f"""
   <g class="rise a{i + 1}">
     <text class="ink" x="{x}" y="{y}" font-size="52" letter-spacing="-1">{value:,}</text>
-    <text class="muted" x="{x}" y="{y + 28}" font-size="14" letter-spacing="0">{label}</text>
+    <text class="muted" x="{x}" y="{y + 28}" font-size="14" letter-spacing="2">{label}</text>
   </g>""")
     # 월별 기여 막대
     cx0, cw, base, top = 440, 560, 300, 100
@@ -259,8 +196,8 @@ def fig_telemetry(t, s):
     step = cw / len(months)
     bw = step * 0.62
     parts.append(f"""
-  <text class="muted rise a1" x="{cx0}" y="56" font-size="14" letter-spacing="0">월별 기여</text>
-  <text class="accent rise a1" x="1000" y="56" font-size="14" letter-spacing="0" text-anchor="end">총 {s['total']:,}</text>
+  <text class="muted rise a1" x="{cx0}" y="56" font-size="14" letter-spacing="2">CONTRIBUTIONS / MONTH</text>
+  <text class="accent rise a1" x="1000" y="56" font-size="14" letter-spacing="0" text-anchor="end">{s['total']:,} total</text>
   <line class="draw a1" x1="{cx0}" y1="{base}" x2="1000" y2="{base}" stroke="{t['faint']}"/>""")
     for i, (ym, v) in enumerate(months):
         h = (base - top) * v / peak
@@ -269,21 +206,21 @@ def fig_telemetry(t, s):
         fill = t["accent"] if is_peak else t["bar"]
         parts.append(f"""
   <rect class="grow a{min(i // 3 + 1, 5)}" x="{x:.1f}" y="{base - h:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{fill}"/>
-  <text class="muted" x="{x + bw / 2:.1f}" y="{base + 24}" font-size="14" text-anchor="middle">{int(ym[5:])}월</text>""")
+  <text class="muted" x="{x + bw / 2:.1f}" y="{base + 24}" font-size="14" text-anchor="middle">{int(ym[5:])}</text>""")
         if is_peak:
             parts.append(f"""
   <text class="accent rise a5" x="{x + bw / 2:.1f}" y="{base - h - 10:.1f}" font-size="14" text-anchor="middle">{v}</text>""")
     return svg(t, 340, "활동 지표: 최근 12개월 커밋, PR, 리뷰, 이슈 수와 월별 기여", "".join(parts) + "\n")
 
 
-# ── FIG.03 TIMELINE ──────────────────────────────────
+# ── FIG.02 연표 ──────────────────────────────────
 
 EVENTS = [
-    ("2021.03", "GitHub 시작", "첫 저장소"),
-    ("2026.08", "Showmoa", "CTO · 데이터 동기화"),
-    ("2026.10", "test moa", "실시간 채팅"),
-    ("2026.11", "Pawmento", "인프라 · CI"),
-    ("지금", "구직 중", "신입 백엔드"),
+    ("2021.03", "GitHub 시작", "first repositories"),
+    ("2026.08", "Showmoa", "CTO · data sync"),
+    ("2026.10", "test moa", "realtime chat"),
+    ("2026.11", "Pawmento", "infra · CI"),
+    ("NOW", "구직 중", "junior backend"),
 ]
 
 
@@ -291,7 +228,7 @@ def fig_timeline(t):
     y = 110
     xs = [20, 230, 420, 610, 980]
     parts = [f"""
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 03</text>
+  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="2">FIG. 02</text>
   <line class="draw a1" x1="20" y1="{y}" x2="980" y2="{y}" stroke="{t['faint']}"/>
   <g class="rise a2">
     <line x1="128" y1="{y - 10}" x2="120" y2="{y + 10}" stroke="{t['muted']}"/>
@@ -330,7 +267,6 @@ def main():
         (d / "header.svg").write_text(header(t))
         for fname, num, name, note in SECTIONS:
             (d / f"{fname}.svg").write_text(section(t, num, name, note))
-        (d / "fig-pipeline.svg").write_text(fig_pipeline(t))
         (d / "fig-telemetry.svg").write_text(fig_telemetry(t, stats))
         (d / "fig-timeline.svg").write_text(fig_timeline(t))
     print(f"생성 완료: {out} (commits={stats['commits']}, total={stats['total']})")

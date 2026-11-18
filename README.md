@@ -77,19 +77,13 @@ Java와 Spring으로 서버를 개발하는 백엔드 개발자입니다.<br/>
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s04.svg"><img src="assets/s04.svg" alt="04 — 배포 파이프라인" width="100%"></picture>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/fig-pipeline.svg"><img src="assets/fig-pipeline.svg" alt="배포 파이프라인: 코드, 테스트, 빌드, 배포, 프록시, 감시 단계별로 세 프로젝트에서 맡은 부분" width="100%"></picture>
-
-<br/>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s05.svg"><img src="assets/s05.svg" alt="05 — 활동 지표" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s04.svg"><img src="assets/s04.svg" alt="04 — 활동 지표" width="100%"></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/fig-telemetry.svg"><img src="assets/fig-telemetry.svg" alt="최근 12개월 커밋, PR, 리뷰, 이슈 수와 월별 기여 그래프" width="100%"></picture>
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s06.svg"><img src="assets/s06.svg" alt="06 — 연표" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s05.svg"><img src="assets/s05.svg" alt="05 — 연표" width="100%"></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/fig-timeline.svg"><img src="assets/fig-timeline.svg" alt="연표: 2021 GitHub 시작, 2026 Showmoa, test moa, Pawmento, 지금 신입 백엔드 구직 중" width="100%"></picture>
 
