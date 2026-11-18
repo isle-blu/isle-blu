@@ -9,77 +9,52 @@
 
 ## 요즘 하는 일
 
-반려동물과의 평범한 오늘을 기록하고 오래 간직하도록 돕는 서비스 **[pawmento](#pawmento)** 를 만들고 있습니다.
+<table>
+  <tr>
+    <td width="45%"><a href="projects/pawmento.md"><img src="assets/pawmento.jpg" alt="Pawmento" width="100%"></a></td>
+    <td>
+      <a href="https://github.com/likelion-backendschool-9th/pawmento"><b>Pawmento</b></a><br/>
+      반려동물과의 오늘을 하루 한 질문으로 기록하는 PWA 서비스<br/>
+      <sub><b>담당</b> · 인프라·배포 · CI · 커뮤니티 백엔드</sub><br/>
+      <sub><b>판단</b> · MockMvc에 적용되지 않는 context-path 대신 addPathPrefix 선택</sub><br/><br/>
+      <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java"> <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions"><br/><br/>
+      <a href="https://github.com/likelion-backendschool-9th/pawmento">GitHub ↗</a> · <a href="projects/pawmento.md">설계 기록 ↗</a>
+    </td>
+  </tr>
+</table>
 
 <br/>
 
 ## 프로젝트
 
-### showmoa
-
-<img src="assets/showmoa.jpg" alt="showmoa" width="100%">
-
-공연 정보 플랫폼입니다. 흩어진 전국 공연 정보를 매일 모아 검색·지도·찜 캘린더로 보여 줍니다. (4인 팀, 2026.08 ~ 진행 중)
-
-**역할**: CTO · 백엔드. 공연 데이터 수집·동기화, 실행 환경과 설정, 서버 배포·운영, 모니터링과 성능 측정
-
-**고른 것과 버린 것**
-- **전체 재검증 대신 요일별 1/7 재검증**: 매일 전부(약 3,500건)를 다시 조회하면 실행 시간 한도에 걸려 매번 같은 뒷부분이 빠집니다. 공연 ID 해시로 7조각에 고정 배정해 하루 5~6분으로 줄였습니다. 상태를 따로 저장할 필요도, 스키마를 바꿀 필요도 없습니다.
-- **분산 락과 이미지 레지스트리는 도입하지 않음**: 앱 인스턴스가 하나라 락이 필요 없고, 서버에서 바로 빌드하는 쪽이 가장 단순했습니다. 대신 "빌드가 메모리에 부담이 되면 CI + GHCR로 옮긴다"는 전환 조건을 기록해 두었습니다.
-
-**원인을 파고든 문제**
-- **한도보다 적게 불렀는데 차단**: 공식 한도(초당 10회)보다 훨씬 적게 호출했는데도 150~300회마다 일시 차단됐습니다. 실제 동작을 관찰해 1·2·4·8·16분 간격으로 다시 시도하게 했습니다. 오류도 HTTP 200으로 오는 API라서 응답 본문의 결과 코드로 성공 여부를 판정합니다.
-- **막 띄운 앱의 p95 604ms**: 요청이 한두 건뿐이면 p95가 곧 가장 느린 한 건이 되는데, 그 한 건이 캐시가 빈 첫 요청이었습니다. 반복 요청은 약 40ms였습니다. 그래서 성능은 요청이 충분히 쌓인 구간에서 판단하도록 대시보드 안내에 추가했습니다.
-
-**결과**
-- 개발 서버를 운영하고 있습니다. 매일 새벽 KOPIS 동기화(공연 약 5,000건, 극장 약 1,000곳), 실패하면 자동으로 되돌리는 배포 스크립트, 매일 백업과 복원 검증, 서버 밖에서 감시하는 장애 알림을 갖췄습니다.
-- k6 성능 기준선(vCPU 2개, 메모리 4GB): 동시 사용자 10명에서 p95 약 200ms, 오류 0%, CPU 16%였습니다. 1명일 때와 비교해 p95가 거의 늘지 않았습니다.
-
-`Java 21` `Spring Boot 4.1` `PostgreSQL + PostGIS` `Valkey` `Docker Compose` `Caddy` `k6`
-
-[Backend 저장소](https://github.com/dawn-guys/showmoa-backend) · [Frontend 저장소](https://github.com/dawn-guys/showmoa-frontend)
-
-<br/>
-
-### test-moa
-
-<img src="assets/test-moa.jpg" alt="test-moa" width="100%">
-
-소프트웨어 테스터 모집 플랫폼입니다. 개발자가 조건에 맞는 테스터를 모으고, 항목별 피드백을 받고, 크레딧으로 보상하는 서비스입니다. (5인 팀)
-
-- **역할**: 실시간 채팅 전체(설계·백엔드·화면 연결), 프론트 공통 구조, 테스트 서버 배포
-- **왜 SSE인가**: 메시지는 일반 POST로 보내고 서버는 "새 메시지·읽음" 알림만 보내면 돼서 WebSocket 대신 SSE를 골랐습니다. 일반 HTTP라 nginx → Next(BFF) → Spring 경로를 그대로 탈 수 있습니다.
-- **일부러 하지 않은 것**: 채팅용 저장소를 따로 두지 않고 PostgreSQL에서 방 행 잠금과 방별 순번(`seq`)으로 순서·중복을 보장했습니다. Redis pub/sub은 서버가 한 대인 지금은 필요 없어 보류했습니다([#267](https://github.com/likelion-backendschool-9th/test-moa/issues/267)).
-- **원인 추적**: CI에서만 채팅 테스트가 실패했습니다. 테스트 컨텍스트 11개 × 커넥션 풀 10개 = 110개가 PostgreSQL 한도 100을 넘은 것이 원인이었습니다. 테스트 서버에서 SSE가 안 온 것은 호스트 nginx의 버퍼링 때문이어서 SSE 경로에만 버퍼링 끔과 긴 read timeout을 따로 두었습니다.
-
-`Java 21` `Spring Boot 4.1` `Spring Security` `JPA` `PostgreSQL` `Next.js` `Docker` `GitHub Actions`
-
-[저장소](https://github.com/likelion-backendschool-9th/test-moa) · [테스트 서버](https://test-moa.newlecture.com)
-
-<br/>
-
-### pawmento
-
-<img src="assets/pawmento.jpg" alt="pawmento" width="100%">
-
-반려동물의 사진·음성·글을 하루 한 질문으로 기록하는 PWA 서비스입니다. (5인 팀, 2026.11 ~ 진행 중)
-
-**역할**: 인프라·배포 전체, CI와 팀 협업 규칙, 커뮤니티·AI 엽서 백엔드
-
-**고른 것과 버린 것**
-- **API 버전 접두사**: 컨트롤러마다 직접 쓰기, context-path, addPathPrefix, Spring 7의 API 버전 기능을 비교했습니다. context-path는 MockMvc 테스트에 적용되지 않아 테스트 경로와 실제 경로가 달라지는 함정이 있어서 addPathPrefix를 골랐습니다. Spring 7 기능은 v1과 v2를 함께 운영할 때 가치가 있어 보류했습니다.
-- **예외 처리 규칙**: 기존 의존 규칙이 도메인 예외까지 막아서 "작성자만 수정할 수 있다" 같은 업무 규칙이 서비스로 밀려나 있었습니다. 도메인 예외를 하나씩 import하면 global과 도메인 사이에 순환 의존이 생기므로, 공통 부모 예외만 처리하는 방식을 팀 규칙으로 제안해 문서화했습니다.
-
-**원인을 파고든 문제**
-- **첫 배포의 no such host**: Secret에 내 PC에서만 통하는 SSH 별칭이 들어간 것이 원인이었습니다.
-- **호스트 키 지문 형식**: 호스트 키 검증을 넣을 때 액션 내부의 Go 코드를 확인해, 지문 값에 `SHA256:` 접두사까지 넣어야 한다는 것을 알았습니다. 리뷰에서 제안된 형식대로 넣었다면 배포가 실패했을 것입니다.
-
-**결과**
-- develop에 머지하면 검사 → 이미지 빌드 → 공용 서버 배포 → 응답 확인까지 자동으로 진행되고, 이 상태로 운영 중입니다. 빌드는 GitHub Actions에서 하고 서버는 GHCR 이미지만 받아 공용 서버의 자원을 쓰지 않습니다.
-
-`Java 21` `Spring Boot` `PostgreSQL` `Testcontainers` `Next.js` `PWA` `Docker` `GitHub Actions` `GHCR`
-
-[저장소](https://github.com/likelion-backendschool-9th/pawmento)
+<table>
+  <tr>
+    <td width="50%" align="center"><a href="projects/showmoa.md"><img src="assets/showmoa.jpg" alt="Showmoa" width="100%"></a></td>
+    <td width="50%" align="center"><a href="projects/test-moa.md"><img src="assets/test-moa.jpg" alt="test moa" width="100%"></a></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/dawn-guys/showmoa-backend"><b>Showmoa · 쇼모아</b></a><br/>
+      흩어진 전국 공연 정보를 한곳에서 찾는 서비스<br/>
+      <sub><b>담당</b> · CTO · 공연 데이터 동기화 · 배포·운영 · 모니터링</sub><br/>
+      <sub><b>판단</b> · 요일별 1/7 재검증으로 동기화 누락 해결</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/likelion-backendschool-9th/test-moa"><b>test moa</b></a><br/>
+      개발자와 테스터를 잇는 테스터 모집 플랫폼<br/>
+      <sub><b>담당</b> · 실시간 채팅 · 프론트 공통 구조 · 테스트 서버 배포</sub><br/>
+      <sub><b>판단</b> · WebSocket 대신 SSE로 기존 HTTP 경로 재사용</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java"> <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/k6-7D64FF?style=flat-square&logo=k6&logoColor=white" alt="k6"></td>
+    <td align="center"><img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java"> <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js"></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/dawn-guys/showmoa-backend">GitHub ↗</a> · <a href="projects/showmoa.md">설계 기록 ↗</a></td>
+    <td align="center"><a href="https://github.com/likelion-backendschool-9th/test-moa">GitHub ↗</a> · <a href="https://test-moa.newlecture.com">테스트 서버 ↗</a> · <a href="projects/test-moa.md">설계 기록 ↗</a></td>
+  </tr>
+</table>
 
 <br/>
 
