@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [scripts/profile_svg.py]
+    paths: [scripts/profile_svg.py, fonts/**]
 
 permissions:
   contents: write
@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: 글꼴 도구 설치
+        run: pip install fonttools==4.68.0 brotli
       - name: SVG 생성
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

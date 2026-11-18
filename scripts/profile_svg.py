@@ -4,11 +4,18 @@
     python3 scripts/profile_svg.py --static   # 애니메이션 없이 생성 (캡처 확인용)
 
 TELEMETRY 수치는 GitHub GraphQL API에서 받는다. 토큰은 GITHUB_TOKEN 또는 GH_TOKEN 환경 변수에서 읽는다.
+글꼴은 fonts/의 IBM Plex Mono·IBM Plex Sans KR(SIL OFL 1.1)에서 SVG마다 쓰인 글자만 잘라 WOFF2로 넣는다.
+OFL의 예약 글꼴 이름("Plex")을 피하려고 잘라 낸 글꼴은 이름 정보를 지우고 다른 이름으로 부른다.
+필요 패키지: fonttools, brotli
 레이아웃 아이디어는 github.com/Sharann-del 프로필을 참고했고, 코드와 그림은 새로 작성했다.
 """
 import argparse
+import base64
+import html
+import io
 import json
 import os
+import re
 import urllib.request
 from collections import OrderedDict
 from datetime import date
@@ -16,7 +23,11 @@ from pathlib import Path
 
 LOGIN = "isle-blu"
 ROOT = Path(__file__).resolve().parent.parent
-MONO = ('ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", '
+FONTS = [  # (CSS에서 부를 이름, 파일) — 앞에 있는 글꼴부터 글자를 찾는다
+    ("ProfileMono", ROOT / "fonts" / "IBMPlexMono-Regular.ttf"),
+    ("ProfileKR", ROOT / "fonts" / "IBMPlexSansKR-Regular.ttf"),
+]
+MONO = ('"ProfileMono", "ProfileKR", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", '
         '"D2Coding", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", monospace')
 
 THEMES = {
@@ -45,9 +56,45 @@ def style(t):
   </style>"""
 
 
+_font_cache = {}
+
+
+def subset_woff2(path, chars):
+    """글꼴에서 chars에 해당하는 글자만 남긴 WOFF2를 base64로 돌려준다."""
+    key = (path, chars)
+    if key not in _font_cache:
+        import logging
+        from fontTools import subset
+        from fontTools.ttLib import TTFont
+        logging.getLogger("fontTools.subset").setLevel(logging.ERROR)
+        font = TTFont(path)
+        opts = subset.Options()
+        opts.flavor = "woff2"
+        opts.name_IDs = []          # 이름 정보 제거 (예약 글꼴 이름 회피)
+        opts.layout_features = ["kern", "liga"]
+        sub = subset.Subsetter(opts)
+        sub.populate(text=chars)
+        sub.subset(font)
+        buf = io.BytesIO()
+        font.flavor = "woff2"
+        font.save(buf)
+        _font_cache[key] = base64.b64encode(buf.getvalue()).decode()
+    return _font_cache[key]
+
+
+def font_faces(body):
+    chars = "".join(sorted(set(html.unescape("".join(re.findall(r">([^<>]+)<", body))))))
+    faces = []
+    for name, path in FONTS:
+        data = subset_woff2(str(path), chars)
+        faces.append(f'@font-face {{ font-family: "{name}"; src: url(data:font/woff2;base64,{data}) format("woff2"); }}')
+    return "\n    ".join(faces)
+
+
 def svg(t, height, label, body):
+    css = style(t).replace("<style>", "<style>\n    " + font_faces(body), 1)
     return (f'<svg viewBox="0 0 1000 {height}" fill="none" xmlns="http://www.w3.org/2000/svg" '
-            f'role="img" aria-label="{label}">\n  {style(t)}\n{body}</svg>\n')
+            f'role="img" aria-label="{label}">\n  {css}\n{body}</svg>\n')
 
 
 def esc(s):
