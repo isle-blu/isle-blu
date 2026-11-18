@@ -16,7 +16,8 @@ from pathlib import Path
 
 LOGIN = "isle-blu"
 ROOT = Path(__file__).resolve().parent.parent
-MONO = 'ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace'
+MONO = ('ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", '
+        '"D2Coding", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", monospace')
 
 THEMES = {
     "light": dict(ink="#1F2328", muted="#59636E", faint="#D0D7DE", accent="#1D4ED8", bar="#93B4F5"),
@@ -56,29 +57,30 @@ def esc(s):
 # ── 헤더와 섹션 구분선 ───────────────────────────────
 
 def header(t):
-    return svg(t, 300, "Deokkwan Yang — Backend Engineer", f"""
+    return svg(t, 300, "양덕관 Deokkwan Yang — 백엔드 개발자", f"""
   <g class="rise a1">
-    <text class="muted" x="0" y="28" font-size="14" letter-spacing="3.5">BACKEND ENGINEER — PROFILE Nº 001</text>
-    <text class="muted" x="1000" y="28" font-size="14" letter-spacing="3.5" text-anchor="end">GITHUB / ISLE-BLU</text>
+    <text class="muted" x="0" y="28" font-size="14" letter-spacing="0">백엔드 개발자 — 프로필 Nº 001</text>
+    <text class="muted" x="1000" y="28" font-size="14" letter-spacing="0" text-anchor="end">GITHUB / ISLE-BLU</text>
   </g>
   <line class="draw a1" x1="0" y1="46" x2="1000" y2="46" stroke="{t['faint']}"/>
-  <text class="ink rise a2" x="-4" y="150" font-size="76" letter-spacing="-2">Deokkwan Yang</text>
-  <text class="muted rise a3" x="0" y="196" font-size="20" letter-spacing="1">Java · Spring · CI/CD · Monitoring</text>
+  <text class="ink rise a2" x="-4" y="150" font-size="76">양덕관</text>
+  <text class="muted rise a2" x="252" y="150" font-size="26">Deokkwan Yang</text>
+  <text class="muted rise a3" x="0" y="196" font-size="20" letter-spacing="0">Java · Spring · CI/CD · 모니터링</text>
   <line class="draw a3" x1="0" y1="232" x2="1000" y2="232" stroke="{t['faint']}"/>
   <g class="rise a4">
-    <text class="muted" x="0" y="270" font-size="14" letter-spacing="3">STATUS</text>
-    <text class="accent" x="120" y="270" font-size="18">open to junior backend roles</text>
+    <text class="muted" x="0" y="270" font-size="14" letter-spacing="0">상태</text>
+    <text class="accent" x="100" y="270" font-size="18">신입 백엔드 포지션 구직 중</text>
   </g>
 """)
 
 
 SECTIONS = [
-    ("s01", "01", "NOW", "IN PROGRESS"),
-    ("s02", "02", "PROJECTS", "SELECTED WORK"),
-    ("s03", "03", "PIPELINE", "HOW IT SHIPS"),
-    ("s04", "04", "TELEMETRY", "LAST 12 MONTHS"),
-    ("s05", "05", "TIMELINE", "SO FAR"),
-    ("s06", "06", "STACK", "DAILY TOOLS"),
+    ("s01", "01", "기술 스택", "매일 쓰는 도구"),
+    ("s02", "02", "요즘 하는 일", "진행 중"),
+    ("s03", "03", "프로젝트", "대표 작업"),
+    ("s04", "04", "배포 파이프라인", "PR부터 운영까지"),
+    ("s05", "05", "활동 지표", "최근 12개월"),
+    ("s06", "06", "연표", "지금까지"),
 ]
 
 
@@ -86,8 +88,8 @@ def section(t, num, name, note):
     return svg(t, 90, f"{num} — {name}", f"""
   <g class="rise a1">
     <text class="accent" x="-2" y="56" font-size="48" letter-spacing="-1">{num}</text>
-    <text class="ink" x="86" y="54" font-size="20" letter-spacing="4">— {name}</text>
-    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="3" text-anchor="end">{note}</text>
+    <text class="ink" x="86" y="54" font-size="20" letter-spacing="0">— {name}</text>
+    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="0" text-anchor="end">{note}</text>
   </g>
   <line class="draw a2" x1="0" y1="80" x2="1000" y2="80" stroke="{t['faint']}"/>
 """)
@@ -97,32 +99,32 @@ def section(t, num, name, note):
 # 단계마다 어느 프로젝트에서 직접 다뤘는지 표시한다. 근거는 각 저장소의 워크플로와 설계 기록이다.
 
 STAGES = [
-    ("CODE", "PR · Review", "GitHub"),
-    ("TEST", "CI checks", "Actions"),
-    ("BUILD", "Image build", "GHCR / host"),
-    ("DEPLOY", "Compose", "auto rollback"),
-    ("EDGE", "HTTPS proxy", "Caddy / nginx"),
-    ("WATCH", "Alert · k6", "dashboard"),
+    ("코드", "PR · 리뷰", "GitHub"),
+    ("테스트", "CI 검사", "Actions"),
+    ("빌드", "이미지 빌드", "GHCR / 서버"),
+    ("배포", "Compose", "자동 롤백"),
+    ("프록시", "HTTPS", "Caddy / nginx"),
+    ("감시", "알림 · k6", "대시보드"),
 ]
 PROJECTS = [
-    ("SHOWMOA", [1, 0, 1, 1, 1, 1]),
-    ("TEST MOA", [1, 1, 1, 1, 1, 0]),
-    ("PAWMENTO", [1, 1, 1, 1, 1, 0]),
+    ("Showmoa", [1, 0, 1, 1, 1, 1]),
+    ("test moa", [1, 1, 1, 1, 1, 0]),
+    ("Pawmento", [1, 1, 1, 1, 1, 0]),
 ]
 
 
 def fig_pipeline(t):
     x0, w, gap = 130, 130, 14
     parts = [f"""
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="3">FIG. 01</text>
-  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="3" text-anchor="end">FROM PULL REQUEST TO PRODUCTION</text>"""]
+  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 01</text>
+  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="0" text-anchor="end">PR이 운영 서버에 닿기까지</text>"""]
     for i, (name, main, sub) in enumerate(STAGES):
         x = x0 + i * (w + gap)
         cx = x + w / 2
         parts.append(f"""
   <g class="rise a{min(i // 2 + 1, 4)}">
     <rect x="{x}" y="44" width="{w}" height="104" stroke="{t['faint']}"/>
-    <text class="accent" x="{x + 12}" y="70" font-size="14" letter-spacing="2.5">{i + 1:02d} {name}</text>
+    <text class="accent" x="{x + 12}" y="70" font-size="14" letter-spacing="0">{i + 1:02d} {name}</text>
     <text class="ink" x="{x + 12}" y="102" font-size="15">{esc(main)}</text>
     <text class="muted" x="{x + 12}" y="128" font-size="14">{esc(sub)}</text>
   </g>""")
@@ -136,7 +138,7 @@ def fig_pipeline(t):
         y = 196 + r * 44
         parts.append(f"""
   <g class="rise a{r + 3}">
-    <text class="ink" x="0" y="{y + 5}" font-size="15" letter-spacing="2">{proj}</text>""")
+    <text class="ink" x="0" y="{y + 5}" font-size="15" letter-spacing="0">{proj}</text>""")
         for i, u in enumerate(used):
             cx = x0 + i * (w + gap) + w / 2
             if u:
@@ -147,12 +149,12 @@ def fig_pipeline(t):
     parts.append(f"""
   <g class="rise a5">
     <circle cx="136" cy="333" r="7" fill="{t['accent']}"/>
-    <text class="muted" x="152" y="338" font-size="14">handled myself</text>
+    <text class="muted" x="152" y="338" font-size="14">직접 맡음</text>
     <circle cx="316" cy="333" r="6" stroke="{t['faint']}" stroke-width="1.5"/>
-    <text class="muted" x="332" y="338" font-size="14">not in this project</text>
+    <text class="muted" x="332" y="338" font-size="14">해당 없음</text>
   </g>
 """)
-    return svg(t, 350, "Deployment pipeline: code, test, build, deploy, edge, watch across three projects", "".join(parts))
+    return svg(t, 350, "배포 파이프라인: 코드, 테스트, 빌드, 배포, 프록시, 감시 단계별로 세 프로젝트에서 맡은 부분", "".join(parts))
 
 
 # ── FIG.02 TELEMETRY ─────────────────────────────────
@@ -191,17 +193,17 @@ def fetch_stats():
 
 
 def fig_telemetry(t, s):
-    counters = [("COMMITS", s["commits"]), ("PULL REQUESTS", s["prs"]),
-                ("REVIEWS", s["reviews"]), ("ISSUES", s["issues"])]
+    counters = [("커밋", s["commits"]), ("PR", s["prs"]),
+                ("리뷰", s["reviews"]), ("이슈", s["issues"])]
     parts = [f"""
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="3">FIG. 02</text>
-  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="3" text-anchor="end">UPDATED {date.today():%Y.%m.%d}</text>"""]
+  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 02</text>
+  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="0" text-anchor="end">{date.today():%Y.%m.%d} 갱신</text>"""]
     for i, (label, value) in enumerate(counters):
         x, y = (i % 2) * 190, 96 + (i // 2) * 110
         parts.append(f"""
   <g class="rise a{i + 1}">
     <text class="ink" x="{x}" y="{y}" font-size="52" letter-spacing="-1">{value:,}</text>
-    <text class="muted" x="{x}" y="{y + 28}" font-size="14" letter-spacing="2.5">{label}</text>
+    <text class="muted" x="{x}" y="{y + 28}" font-size="14" letter-spacing="0">{label}</text>
   </g>""")
     # 월별 기여 막대
     cx0, cw, base, top = 440, 560, 300, 100
@@ -210,8 +212,8 @@ def fig_telemetry(t, s):
     step = cw / len(months)
     bw = step * 0.62
     parts.append(f"""
-  <text class="muted rise a1" x="{cx0}" y="56" font-size="14" letter-spacing="2.5">CONTRIBUTIONS / MONTH</text>
-  <text class="accent rise a1" x="1000" y="56" font-size="14" letter-spacing="1" text-anchor="end">{s['total']:,} total</text>
+  <text class="muted rise a1" x="{cx0}" y="56" font-size="14" letter-spacing="0">월별 기여</text>
+  <text class="accent rise a1" x="1000" y="56" font-size="14" letter-spacing="0" text-anchor="end">총 {s['total']:,}</text>
   <line class="draw a1" x1="{cx0}" y1="{base}" x2="1000" y2="{base}" stroke="{t['faint']}"/>""")
     for i, (ym, v) in enumerate(months):
         h = (base - top) * v / peak
@@ -220,21 +222,21 @@ def fig_telemetry(t, s):
         fill = t["accent"] if is_peak else t["bar"]
         parts.append(f"""
   <rect class="grow a{min(i // 3 + 1, 5)}" x="{x:.1f}" y="{base - h:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{fill}"/>
-  <text class="muted" x="{x + bw / 2:.1f}" y="{base + 24}" font-size="14" text-anchor="middle">{int(ym[5:])}</text>""")
+  <text class="muted" x="{x + bw / 2:.1f}" y="{base + 24}" font-size="14" text-anchor="middle">{int(ym[5:])}월</text>""")
         if is_peak:
             parts.append(f"""
   <text class="accent rise a5" x="{x + bw / 2:.1f}" y="{base - h - 10:.1f}" font-size="14" text-anchor="middle">{v}</text>""")
-    return svg(t, 340, "Telemetry: commits, pull requests, reviews, issues and monthly contributions for the last 12 months", "".join(parts) + "\n")
+    return svg(t, 340, "활동 지표: 최근 12개월 커밋, PR, 리뷰, 이슈 수와 월별 기여", "".join(parts) + "\n")
 
 
 # ── FIG.03 TIMELINE ──────────────────────────────────
 
 EVENTS = [
-    ("2021.03", "joined GitHub", "first repositories"),
-    ("2026.08", "Showmoa", "CTO · data sync"),
-    ("2026.10", "test moa", "realtime chat"),
-    ("2026.11", "Pawmento", "infra · CI"),
-    ("NOW", "open to work", "junior backend roles"),
+    ("2021.03", "GitHub 시작", "첫 저장소"),
+    ("2026.08", "Showmoa", "CTO · 데이터 동기화"),
+    ("2026.10", "test moa", "실시간 채팅"),
+    ("2026.11", "Pawmento", "인프라 · CI"),
+    ("지금", "구직 중", "신입 백엔드"),
 ]
 
 
@@ -242,7 +244,7 @@ def fig_timeline(t):
     y = 110
     xs = [20, 230, 420, 610, 980]
     parts = [f"""
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="3">FIG. 03</text>
+  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 03</text>
   <line class="draw a1" x1="20" y1="{y}" x2="980" y2="{y}" stroke="{t['faint']}"/>
   <g class="rise a2">
     <line x1="128" y1="{y - 10}" x2="120" y2="{y + 10}" stroke="{t['muted']}"/>
@@ -257,11 +259,11 @@ def fig_timeline(t):
         parts.append(f"""
   <g class="rise a{min(i + 1, 5)}">
     {dot}
-    <text class="{'accent' if last else 'muted'}" x="{tx}" y="{y - 26}" font-size="14" letter-spacing="2.5" text-anchor="{anchor}">{when}</text>
+    <text class="{'accent' if last else 'muted'}" x="{tx}" y="{y - 26}" font-size="14" letter-spacing="0" text-anchor="{anchor}">{when}</text>
     <text class="{'accent' if last else 'ink'}" x="{tx}" y="{y + 40}" font-size="17" text-anchor="{anchor}">{esc(title)}</text>
     <text class="muted" x="{tx}" y="{y + 64}" font-size="14" text-anchor="{anchor}">{esc(sub)}</text>
   </g>""")
-    return svg(t, 200, "Timeline: 2021 joined GitHub, 2026 Showmoa, test moa, Pawmento, now open to junior backend roles", "".join(parts) + "\n")
+    return svg(t, 200, "연표: 2021 GitHub 시작, 2026 Showmoa, test moa, Pawmento, 지금 신입 백엔드 구직 중", "".join(parts) + "\n")
 
 
 # ── 실행 ─────────────────────────────────────────────

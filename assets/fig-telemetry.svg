@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1000 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Telemetry: commits, pull requests, reviews, issues and monthly contributions for the last 12 months">
+<svg viewBox="0 0 1000 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="활동 지표: 최근 12개월 커밋, PR, 리뷰, 이슈 수와 월별 기여">
   <style>
-    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", "D2Coding", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", monospace; }
     .ink { fill: #1F2328; } .muted { fill: #59636E; } .accent { fill: #1D4ED8; }
     .draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: draw 1.2s cubic-bezier(.6,0,.2,1) forwards; }
     @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -12,50 +12,50 @@
     @media (prefers-reduced-motion: reduce) { .draw, .rise, .grow { animation: none; opacity: 1; stroke-dashoffset: 0; transform: none; } }
   </style>
 
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="3">FIG. 02</text>
-  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="3" text-anchor="end">UPDATED 2026.11.18</text>
+  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 02</text>
+  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="0" text-anchor="end">2026.11.18 갱신</text>
   <g class="rise a1">
     <text class="ink" x="0" y="96" font-size="52" letter-spacing="-1">761</text>
-    <text class="muted" x="0" y="124" font-size="14" letter-spacing="2.5">COMMITS</text>
+    <text class="muted" x="0" y="124" font-size="14" letter-spacing="0">커밋</text>
   </g>
   <g class="rise a2">
     <text class="ink" x="190" y="96" font-size="52" letter-spacing="-1">144</text>
-    <text class="muted" x="190" y="124" font-size="14" letter-spacing="2.5">PULL REQUESTS</text>
+    <text class="muted" x="190" y="124" font-size="14" letter-spacing="0">PR</text>
   </g>
   <g class="rise a3">
     <text class="ink" x="0" y="206" font-size="52" letter-spacing="-1">71</text>
-    <text class="muted" x="0" y="234" font-size="14" letter-spacing="2.5">REVIEWS</text>
+    <text class="muted" x="0" y="234" font-size="14" letter-spacing="0">리뷰</text>
   </g>
   <g class="rise a4">
     <text class="ink" x="190" y="206" font-size="52" letter-spacing="-1">93</text>
-    <text class="muted" x="190" y="234" font-size="14" letter-spacing="2.5">ISSUES</text>
+    <text class="muted" x="190" y="234" font-size="14" letter-spacing="0">이슈</text>
   </g>
-  <text class="muted rise a1" x="440" y="56" font-size="14" letter-spacing="2.5">CONTRIBUTIONS / MONTH</text>
-  <text class="accent rise a1" x="1000" y="56" font-size="14" letter-spacing="1" text-anchor="end">1,387 total</text>
+  <text class="muted rise a1" x="440" y="56" font-size="14" letter-spacing="0">월별 기여</text>
+  <text class="accent rise a1" x="1000" y="56" font-size="14" letter-spacing="0" text-anchor="end">총 1,387</text>
   <line class="draw a1" x1="440" y1="300" x2="1000" y2="300" stroke="#D0D7DE"/>
   <rect class="grow a1" x="448.9" y="300.0" width="28.9" height="0.0" fill="#93B4F5"/>
-  <text class="muted" x="463.3" y="324" font-size="14" text-anchor="middle">12</text>
+  <text class="muted" x="463.3" y="324" font-size="14" text-anchor="middle">12월</text>
   <rect class="grow a1" x="495.5" y="296.9" width="28.9" height="3.1" fill="#93B4F5"/>
-  <text class="muted" x="510.0" y="324" font-size="14" text-anchor="middle">1</text>
+  <text class="muted" x="510.0" y="324" font-size="14" text-anchor="middle">1월</text>
   <rect class="grow a1" x="542.2" y="296.9" width="28.9" height="3.1" fill="#93B4F5"/>
-  <text class="muted" x="556.7" y="324" font-size="14" text-anchor="middle">2</text>
+  <text class="muted" x="556.7" y="324" font-size="14" text-anchor="middle">2월</text>
   <rect class="grow a2" x="588.9" y="298.1" width="28.9" height="1.9" fill="#93B4F5"/>
-  <text class="muted" x="603.3" y="324" font-size="14" text-anchor="middle">3</text>
+  <text class="muted" x="603.3" y="324" font-size="14" text-anchor="middle">3월</text>
   <rect class="grow a2" x="635.5" y="300.0" width="28.9" height="0.0" fill="#93B4F5"/>
-  <text class="muted" x="650.0" y="324" font-size="14" text-anchor="middle">4</text>
+  <text class="muted" x="650.0" y="324" font-size="14" text-anchor="middle">4월</text>
   <rect class="grow a2" x="682.2" y="300.0" width="28.9" height="0.0" fill="#93B4F5"/>
-  <text class="muted" x="696.7" y="324" font-size="14" text-anchor="middle">5</text>
+  <text class="muted" x="696.7" y="324" font-size="14" text-anchor="middle">5월</text>
   <rect class="grow a3" x="728.9" y="296.6" width="28.9" height="3.4" fill="#93B4F5"/>
-  <text class="muted" x="743.3" y="324" font-size="14" text-anchor="middle">6</text>
+  <text class="muted" x="743.3" y="324" font-size="14" text-anchor="middle">6월</text>
   <rect class="grow a3" x="775.5" y="213.2" width="28.9" height="86.8" fill="#93B4F5"/>
-  <text class="muted" x="790.0" y="324" font-size="14" text-anchor="middle">7</text>
+  <text class="muted" x="790.0" y="324" font-size="14" text-anchor="middle">7월</text>
   <rect class="grow a3" x="822.2" y="290.3" width="28.9" height="9.7" fill="#93B4F5"/>
-  <text class="muted" x="836.7" y="324" font-size="14" text-anchor="middle">8</text>
+  <text class="muted" x="836.7" y="324" font-size="14" text-anchor="middle">8월</text>
   <rect class="grow a4" x="868.9" y="260.2" width="28.9" height="39.8" fill="#93B4F5"/>
-  <text class="muted" x="883.3" y="324" font-size="14" text-anchor="middle">9</text>
+  <text class="muted" x="883.3" y="324" font-size="14" text-anchor="middle">9월</text>
   <rect class="grow a4" x="915.5" y="213.2" width="28.9" height="86.8" fill="#93B4F5"/>
-  <text class="muted" x="930.0" y="324" font-size="14" text-anchor="middle">10</text>
+  <text class="muted" x="930.0" y="324" font-size="14" text-anchor="middle">10월</text>
   <rect class="grow a4" x="962.2" y="100.0" width="28.9" height="200.0" fill="#1D4ED8"/>
-  <text class="muted" x="976.7" y="324" font-size="14" text-anchor="middle">11</text>
+  <text class="muted" x="976.7" y="324" font-size="14" text-anchor="middle">11월</text>
   <text class="accent rise a5" x="976.7" y="90.0" font-size="14" text-anchor="middle">638</text>
 </svg>

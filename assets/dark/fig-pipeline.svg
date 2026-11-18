@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1000 350" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deployment pipeline: code, test, build, deploy, edge, watch across three projects">
+<svg viewBox="0 0 1000 350" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="배포 파이프라인: 코드, 테스트, 빌드, 배포, 프록시, 감시 단계별로 세 프로젝트에서 맡은 부분">
   <style>
-    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", "D2Coding", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", monospace; }
     .ink { fill: #E6EDF3; } .muted { fill: #9198A1; } .accent { fill: #3B82F6; }
     .draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: draw 1.2s cubic-bezier(.6,0,.2,1) forwards; }
     @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -12,57 +12,57 @@
     @media (prefers-reduced-motion: reduce) { .draw, .rise, .grow { animation: none; opacity: 1; stroke-dashoffset: 0; transform: none; } }
   </style>
 
-  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="3">FIG. 01</text>
-  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="3" text-anchor="end">FROM PULL REQUEST TO PRODUCTION</text>
+  <text class="muted rise a1" x="0" y="20" font-size="14" letter-spacing="0">그림 01</text>
+  <text class="muted rise a1" x="1000" y="20" font-size="14" letter-spacing="0" text-anchor="end">PR이 운영 서버에 닿기까지</text>
   <g class="rise a1">
     <rect x="130" y="44" width="130" height="104" stroke="#30363D"/>
-    <text class="accent" x="142" y="70" font-size="14" letter-spacing="2.5">01 CODE</text>
-    <text class="ink" x="142" y="102" font-size="15">PR · Review</text>
+    <text class="accent" x="142" y="70" font-size="14" letter-spacing="0">01 코드</text>
+    <text class="ink" x="142" y="102" font-size="15">PR · 리뷰</text>
     <text class="muted" x="142" y="128" font-size="14">GitHub</text>
   </g>
   <path class="draw a3" d="M263 96 H271 M266 91 L271 96 L266 101" stroke="#9198A1"/>
   <line class="draw a2" x1="195.0" y1="160" x2="195.0" y2="300" stroke="#30363D" stroke-dasharray="2 5"/>
   <g class="rise a1">
     <rect x="274" y="44" width="130" height="104" stroke="#30363D"/>
-    <text class="accent" x="286" y="70" font-size="14" letter-spacing="2.5">02 TEST</text>
-    <text class="ink" x="286" y="102" font-size="15">CI checks</text>
+    <text class="accent" x="286" y="70" font-size="14" letter-spacing="0">02 테스트</text>
+    <text class="ink" x="286" y="102" font-size="15">CI 검사</text>
     <text class="muted" x="286" y="128" font-size="14">Actions</text>
   </g>
   <path class="draw a3" d="M407 96 H415 M410 91 L415 96 L410 101" stroke="#9198A1"/>
   <line class="draw a2" x1="339.0" y1="160" x2="339.0" y2="300" stroke="#30363D" stroke-dasharray="2 5"/>
   <g class="rise a2">
     <rect x="418" y="44" width="130" height="104" stroke="#30363D"/>
-    <text class="accent" x="430" y="70" font-size="14" letter-spacing="2.5">03 BUILD</text>
-    <text class="ink" x="430" y="102" font-size="15">Image build</text>
-    <text class="muted" x="430" y="128" font-size="14">GHCR / host</text>
+    <text class="accent" x="430" y="70" font-size="14" letter-spacing="0">03 빌드</text>
+    <text class="ink" x="430" y="102" font-size="15">이미지 빌드</text>
+    <text class="muted" x="430" y="128" font-size="14">GHCR / 서버</text>
   </g>
   <path class="draw a3" d="M551 96 H559 M554 91 L559 96 L554 101" stroke="#9198A1"/>
   <line class="draw a2" x1="483.0" y1="160" x2="483.0" y2="300" stroke="#30363D" stroke-dasharray="2 5"/>
   <g class="rise a2">
     <rect x="562" y="44" width="130" height="104" stroke="#30363D"/>
-    <text class="accent" x="574" y="70" font-size="14" letter-spacing="2.5">04 DEPLOY</text>
+    <text class="accent" x="574" y="70" font-size="14" letter-spacing="0">04 배포</text>
     <text class="ink" x="574" y="102" font-size="15">Compose</text>
-    <text class="muted" x="574" y="128" font-size="14">auto rollback</text>
+    <text class="muted" x="574" y="128" font-size="14">자동 롤백</text>
   </g>
   <path class="draw a3" d="M695 96 H703 M698 91 L703 96 L698 101" stroke="#9198A1"/>
   <line class="draw a2" x1="627.0" y1="160" x2="627.0" y2="300" stroke="#30363D" stroke-dasharray="2 5"/>
   <g class="rise a3">
     <rect x="706" y="44" width="130" height="104" stroke="#30363D"/>
-    <text class="accent" x="718" y="70" font-size="14" letter-spacing="2.5">05 EDGE</text>
-    <text class="ink" x="718" y="102" font-size="15">HTTPS proxy</text>
+    <text class="accent" x="718" y="70" font-size="14" letter-spacing="0">05 프록시</text>
+    <text class="ink" x="718" y="102" font-size="15">HTTPS</text>
     <text class="muted" x="718" y="128" font-size="14">Caddy / nginx</text>
   </g>
   <path class="draw a3" d="M839 96 H847 M842 91 L847 96 L842 101" stroke="#9198A1"/>
   <line class="draw a2" x1="771.0" y1="160" x2="771.0" y2="300" stroke="#30363D" stroke-dasharray="2 5"/>
   <g class="rise a3">
     <rect x="850" y="44" width="130" height="104" stroke="#30363D"/>
-    <text class="accent" x="862" y="70" font-size="14" letter-spacing="2.5">06 WATCH</text>
-    <text class="ink" x="862" y="102" font-size="15">Alert · k6</text>
-    <text class="muted" x="862" y="128" font-size="14">dashboard</text>
+    <text class="accent" x="862" y="70" font-size="14" letter-spacing="0">06 감시</text>
+    <text class="ink" x="862" y="102" font-size="15">알림 · k6</text>
+    <text class="muted" x="862" y="128" font-size="14">대시보드</text>
   </g>
   <line class="draw a2" x1="915.0" y1="160" x2="915.0" y2="300" stroke="#30363D" stroke-dasharray="2 5"/>
   <g class="rise a3">
-    <text class="ink" x="0" y="201" font-size="15" letter-spacing="2">SHOWMOA</text>
+    <text class="ink" x="0" y="201" font-size="15" letter-spacing="0">Showmoa</text>
     <circle cx="195.0" cy="196" r="8" fill="#3B82F6"/>
     <circle cx="339.0" cy="196" r="7" stroke="#30363D" stroke-width="1.5"/>
     <circle cx="483.0" cy="196" r="8" fill="#3B82F6"/>
@@ -71,7 +71,7 @@
     <circle cx="915.0" cy="196" r="8" fill="#3B82F6"/>
   </g>
   <g class="rise a4">
-    <text class="ink" x="0" y="245" font-size="15" letter-spacing="2">TEST MOA</text>
+    <text class="ink" x="0" y="245" font-size="15" letter-spacing="0">test moa</text>
     <circle cx="195.0" cy="240" r="8" fill="#3B82F6"/>
     <circle cx="339.0" cy="240" r="8" fill="#3B82F6"/>
     <circle cx="483.0" cy="240" r="8" fill="#3B82F6"/>
@@ -80,7 +80,7 @@
     <circle cx="915.0" cy="240" r="7" stroke="#30363D" stroke-width="1.5"/>
   </g>
   <g class="rise a5">
-    <text class="ink" x="0" y="289" font-size="15" letter-spacing="2">PAWMENTO</text>
+    <text class="ink" x="0" y="289" font-size="15" letter-spacing="0">Pawmento</text>
     <circle cx="195.0" cy="284" r="8" fill="#3B82F6"/>
     <circle cx="339.0" cy="284" r="8" fill="#3B82F6"/>
     <circle cx="483.0" cy="284" r="8" fill="#3B82F6"/>
@@ -90,8 +90,8 @@
   </g>
   <g class="rise a5">
     <circle cx="136" cy="333" r="7" fill="#3B82F6"/>
-    <text class="muted" x="152" y="338" font-size="14">handled myself</text>
+    <text class="muted" x="152" y="338" font-size="14">직접 맡음</text>
     <circle cx="316" cy="333" r="6" stroke="#30363D" stroke-width="1.5"/>
-    <text class="muted" x="332" y="338" font-size="14">not in this project</text>
+    <text class="muted" x="332" y="338" font-size="14">해당 없음</text>
   </g>
 </svg>

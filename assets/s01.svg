@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1000 90" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="01 — NOW">
+<svg viewBox="0 0 1000 90" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="01 — 기술 스택">
   <style>
-    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", "D2Coding", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", monospace; }
     .ink { fill: #1F2328; } .muted { fill: #59636E; } .accent { fill: #1D4ED8; }
     .draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: draw 1.2s cubic-bezier(.6,0,.2,1) forwards; }
     @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -14,8 +14,8 @@
 
   <g class="rise a1">
     <text class="accent" x="-2" y="56" font-size="48" letter-spacing="-1">01</text>
-    <text class="ink" x="86" y="54" font-size="20" letter-spacing="4">— NOW</text>
-    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="3" text-anchor="end">IN PROGRESS</text>
+    <text class="ink" x="86" y="54" font-size="20" letter-spacing="0">— 기술 스택</text>
+    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="0" text-anchor="end">매일 쓰는 도구</text>
   </g>
   <line class="draw a2" x1="0" y1="80" x2="1000" y2="80" stroke="#D0D7DE"/>
 </svg>

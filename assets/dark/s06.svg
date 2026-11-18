@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1000 90" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="06 — STACK">
+<svg viewBox="0 0 1000 90" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="06 — 연표">
   <style>
-    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    text { font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", "D2Coding", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", monospace; }
     .ink { fill: #E6EDF3; } .muted { fill: #9198A1; } .accent { fill: #3B82F6; }
     .draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: draw 1.2s cubic-bezier(.6,0,.2,1) forwards; }
     @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -14,8 +14,8 @@
 
   <g class="rise a1">
     <text class="accent" x="-2" y="56" font-size="48" letter-spacing="-1">06</text>
-    <text class="ink" x="86" y="54" font-size="20" letter-spacing="4">— STACK</text>
-    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="3" text-anchor="end">DAILY TOOLS</text>
+    <text class="ink" x="86" y="54" font-size="20" letter-spacing="0">— 연표</text>
+    <text class="muted" x="1000" y="54" font-size="14" letter-spacing="0" text-anchor="end">지금까지</text>
   </g>
   <line class="draw a2" x1="0" y1="80" x2="1000" y2="80" stroke="#30363D"/>
 </svg>
